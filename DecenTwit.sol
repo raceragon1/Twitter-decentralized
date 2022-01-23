@@ -6,17 +6,17 @@ contract decenTwitter{
         string tweets;
     }
 
-    mapping(address => mapping(uint => allTweets)) TweetDatabase;
- 
-    function tweet(uint tweetnumber, string memory Tweet) public {
-        
-        TweetDatabase[msg.sender][tweetnumber] = allTweets(Tweet);
+    mapping(address=>mapping(int => allTweets)) public TweetDatabase;
+    
+    int i=0;
+    //function tweet(uint tweetnumber, string memory Tweet) public {
+    function tweet(string memory Tweet) public {
+        i=i+1;
+        TweetDatabase[msg.sender][i] = allTweets(Tweet);
     }
 
-    function gettweet(uint tweetnumber) public view returns(string memory) {
+    function gettweet(int tweetnumber) public returns(struct){
         return TweetDatabase[msg.sender][tweetnumber];
     }
-
-
 
 }
