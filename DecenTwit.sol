@@ -8,7 +8,7 @@ contract decenTwitter{
 
     mapping(address => mapping(uint => Tweets)) TweetDatabase;
    
-
+    event Account(address value);
     event Tweeted(string value);
     event Tweetnumber(uint value);
     
@@ -18,11 +18,10 @@ contract decenTwitter{
 
         //TweetDatabase[msg.sender][_tweetnumber] = Tweets(_tweet);
 
+        emit Account(msg.sender);
         emit Tweeted(_tweet);
         emit Tweetnumber(_tweetnumber);
     }
-
-   
 
     function gettweet(uint _tweetnumber) public view returns(string memory){
         return (TweetDatabase[msg.sender][_tweetnumber].tweet);
