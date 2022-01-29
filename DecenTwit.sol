@@ -16,8 +16,6 @@ contract decenTwitter{
     function tweet(string memory _tweet, uint _tweetnumber) public {
         TweetDatabase[msg.sender][_tweetnumber] = Tweets(_tweet);
 
-        //TweetDatabase[msg.sender][_tweetnumber] = Tweets(_tweet);
-
         emit Account(msg.sender);
         emit Tweeted(_tweet);
         emit Tweetnumber(_tweetnumber);
